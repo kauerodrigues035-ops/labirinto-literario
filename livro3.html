@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O senhor dos aneis A sociedade do anel</title>
+    <link rel="icon" href="imagens/logo.jpeg">
+    <link rel="stylesheet" href="livro.css">
+
+</head>
+
+<body>
+<div class="overlay" id="overlay"></div>
+
+    <nav class="lateral" id="lateral">
+        <img id="ft-perfil" src="imagens/perfil.jpg" alt="perfil">
+        <p><a href="login.html">login</a></p>
+        <hr>
+        <br>
+        <h3>Labirinto Literario</h3>
+        <ul>
+            <br>
+              <li><a href="index.html">Inicio</a></li><br>
+
+            <li><a href="#">Produtos</a></li><br>
+
+            <li><a href="contatos.html">Contatos</a></li><br>
+
+            <li><a href="sobre.html">Sobre</a></li><br>
+
+              <li><a href="novidades.html">Novidades</a></li><br>
+        </ul>
+
+        </div>
+
+    </nav>
+
+    <nav class="container2">
+        <button id="menu-butao" class="menu-butao">☰</button>
+        
+    </nav>
+
+
+    <main class="container1">
+        <aside>
+            <div class="imagens">
+                <img src="imagens/asociedadedoanel.webp" class="ativo" alt="Capa do Livro">
+                <img src="imagens/asociedadedoanelverso.jpg" alt="Imagem secundária do livro">
+
+                <button id="prev" aria-label="Anterior" style="color: white;">‹</button>
+                <button id="next" aria-label="Próximo" style="color: white;">›</button>
+            </div>
+        </aside>
+
+        <section class="info-principal">
+
+            <h1>O Senhor dos Aneis: A Sociedade do Anel.</h1>
+
+            <p id="JK">Por <small><em>J.R.R.Tolkin</em></small> (Autor)</p>
+
+            <p>4,9 <span style="color: #FFD700;">★★★★★</span> (165)</p>
+
+            <h3>Sobre o livro</h3>
+
+            <p id="sinopse">A imaginação prodigiosa de J.R.R. Tolkien e seu conhecimento profundo das antigas mitologias da Europa permitiram que ele criasse um universo tão complexo e convincente quanto o mundo real.
+
+A Sociedade do Anel começa no Condado, a região rural do oeste da Terra-média onde vivem os diminutos e pacatos hobbits. Bilbo Bolseiro, um dos raros aventureiros desse povo, cujas peripécias foram contadas em O Hobbit, resolve ir embora do Condado e deixa sua considerável herança nas mãos de seu jovem parente Frodo.
+
+O mais importante legado de Bilbo é o anel mágico que costumava usar para se tornar invisível. No entanto, o mago Gandalf, companheiro de aventuras do velho hobbit, revela a Frodo que o objeto é o Um Anel, a raiz do poder demoníaco de Sauron, o Senhor Sombrio, que deseja escravizar todos os povos da Terra-média. A única maneira de eliminar a ameaça de Sauron é destruir o Um Anel nas entranhas da própria montanha de fogo onde foi forjado.
+
+A revelação faz com que Frodo e seus companheiros hobbits Sam, Merry e Pippin deixem a segurança do Condado e iniciem uma perigosa jornada rumo ao leste. Ao lado de representantes dos outros Povos Livres que resistem ao Senhor Sombrio, eles formam a Sociedade do Anel.
+
+Alguém uma vez disse que o mundo dos leitores de língua inglesa se divide entre os que já leram O Senhor dos Anéis e os que um dia lerão o livro. Com esta nova tradução da obra, o fascínio dessa aventura atemporal ficará ainda mais evidente para os leitores brasileiros, tanto os que já conhecem a saga como os que estão prestes a descobrir seu encanto.</p>
+
+        </section>
+
+        <div class="botoes">
+
+         <a href="senhor dos aneis.pdf" download="senhor dos aneis.pdf"><button class="btn-baixar">Baixar PDF</button></a>
+         <a href="senhor dos aneis.pdf"  target="_blank"><button class="btn-abrir">Abrir PDF</button></a>
+
+        </div>
+
+    </main>
+
+    <footer>
+
+<p>Copyright&copy; 2026 Labirinto literário. Todos os direitos reservados.</p>        
+
+    </footer>
+
+    <script>
+
+        let index = 0;
+        const imagens = document.querySelectorAll(".imagens img");
+        const dots = document.querySelectorAll(".dot");
+
+        function mostrarSlide(i) {
+            imagens.forEach(img => img.classList.remove("ativo"));
+            dots.forEach(dot => dot.classList.remove("ativo"));
+
+            imagens[i].classList.add("ativo");
+            dots[i].classList.add("ativo");
+        }
+
+        document.querySelector("#next").onclick = () => {
+            index = (index + 1) % imagens.length;
+            mostrarSlide(index);
+        };
+
+        document.querySelector("#prev").onclick = () => {
+            index = (index - 1 + imagens.length) % imagens.length;
+            mostrarSlide(index);
+        }
+
+
+        
+        document.getElementById('menu-butao').addEventListener('click', function () {
+    const lateral = document.getElementById('lateral');
+    const overlay = document.getElementById('overlay'); 
+
+    lateral.classList.toggle('active');
+    overlay.classList.toggle('active'); // Ativa/desativa o blur junto com a barra
+
+   
+    if (lateral.classList.contains('active')) {
+        this.textContent = '☰';
+    } else {                          //ABRE E FECHA O MENU
+        this.textContent = '☰';
+    }
+});
+
+//  Fecha o menu se clicar no desfoque (fora da barra)
+document.getElementById('overlay').addEventListener('click', function () {
+    const lateral = document.getElementById('lateral');
+    const btn = document.getElementById('menu-butao');
+    
+    lateral.classList.remove('active');
+    this.classList.remove('active');
+    btn.textContent = '☰';
+});
+    </script>
+
+</body>
+
+</html>

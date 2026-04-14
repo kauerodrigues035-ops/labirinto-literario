@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+<link rel="icon" href="imagens/logo.jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bitcount+Grid+Double:wght@100..900&family=Libertinus+Keyboard&family=Playwrite+IE:wght@100..400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+ <div class="overlay" id="overlay"></div>
+
+    <nav class="lateral" id="lateral">
+        <img id="ft-perfil" src="imagens/perfil.jpg" alt="perfil">
+        <p><a href="login.html">login</a></p>
+        <hr>
+        <h3>labirinto literario</h3>
+
+        <ul>
+           
+              <li><a href="index.html">Inicio</a></li><br>
+
+            <li><a href="produtos.html">Produtos</a></li><br>
+
+            <li><a href="contatos.html">Contatos</a></li><br>
+
+            <li><a href="sobre.html">Sobre</a></li><br>
+
+              <li><a href="novidades.html">Novidades</a></li><br>
+
+        </ul>
+
+        </div>
+
+    </nav>
+
+    <button id="menu-butao" class="menu-butao">☰</button>
+
+    <style>
+
+#ft-perfil {
+    border-radius: 80%;
+margin: 10px;
+    width: 30%;
+border: 2px solid gold;
+box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.lateral {
+    background-color:#1A1A1A;
+    position: fixed;
+    height: 100vh;
+    width: 250px;
+    left: -274px;
+    z-index: 1000;
+    transition: 0.5s;
+    border-radius: 3px;
+    text-align: center;
+    border: solid, 1px gold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    padding-top: 60px;
+}
+
+.lateral p  {
+    font-size: x-small;
+    margin: 10px;
+   
+}
+
+.lateral h3{
+    color: gold;
+    text-shadow: none;
+}
+.lateral ul {
+    list-style: none;
+    padding: 0;
+
+}
+
+.lateral a {
+    text-decoration: none;
+    background-color: transparent;
+    color: #BFBFBF;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 5px;
+    display: block;
+    transition: 0.3s;
+}
+
+.lateral a:hover {
+    color: gold;
+  background-color: rgb(255, 255, 255,0.05);
+    transition: all, 0.5s;
+    padding: 15px;
+}
+
+.lateral.active {
+    left: 0%;
+    
+}
+
+.menu-butao {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: aliceblue;
+}
+
+        body {
+            background-color: rgb(7, 7, 7);
+            align-items: center;
+            text-align: center;
+            color: aliceblue;
+            font-family: "Bebas Neue", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+
+
+        }
+
+        .container-livro {
+            display: flex;
+            padding: 20px;
+            gap: 50px;
+            text-align: center;
+            font-size: x-small;
+            margin: 50px;
+            justify-content: center;
+            list-style-type: none;
+            border: solid black;
+            border-radius: 5px;
+            background-color: rgb(104, 104, 104);
+            box-shadow: 0px 0px 40px gold;
+
+        }
+
+        .container-livro img {
+            max-width: 200px;
+            max-height: 200px;
+            border: solid black;
+
+        }
+
+        .container-livro p {
+            color: antiquewhite;
+            text-decoration: none;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .container-livro a {
+            text-decoration: none;
+        }
+        
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s
+}
+        
+.overlay.active{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+main{
+    height: 20vh;
+}
+    
+@media screen {
+    
+    /* Configurações para Tablets e Celulares (telas menores que 768px) */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Ajuste do Título Principal */
+    h1 {
+        font-size: 28px;
+        padding: 10px;
+    }
+
+    /* 2. Ajuste da Grade de Livros */
+    .container-livro {
+        flex-direction: column; /* No celular, os livros ficam um embaixo do outro */
+        align-items: center;
+        gap: 30px;
+        margin: 20px 10px;
+        padding: 15px;
+    }
+
+    .container-livro img {
+        max-width: 150px; /* Livros um pouco menores no celular */
+    }
+
+    /* 3. Ajuste da Barra Lateral */
+    .lateral {
+        width: 200px; /* Barra um pouco mais estreita */
+        left: -224px; /* Ajuste para esconder proporcionalmente */
+    }
+
+    /* 4. Ajuste da Barra de Busca (caso use) */
+    #barra-busca {
+        width: 80%;
+        right: 10%; /* Centraliza melhor em telas pequenas */
+    }
+
+    /* 5. Ajuste de Fontes e Conteúdos Poéticos */
+    .conteudo1, .conteudo2 {
+        font-size: 13px;
+        padding: 10px;
+        margin: 10px;
+    }
+
+    /* 6. Carrossel (caso use na home) */
+    .carrossel {
+        max-width: 90%; /* Ocupa quase a tela toda no celular */
+    }
+}
+
+/* Configurações para Celulares Pequenos (max-width: 480px) */
+@media screen and (max-width: 480px) {
+    .container-livro img {
+        max-width: 120px;
+    }
+    
+    .menu-butao {
+        font-size: 25px; /* Ícone ☰ um pouco menor */
+    }
+}
+    
+}
+
+    </style>
+   
+ <h1>conheça nossos produtos:</h1>
+    <ul class="container-livro">
+        <a href="livro6.html">
+            <li><img src="imagens/hobbit.jpg" alt="O Hobbit">
+                <p>O Hobbit</p>
+            </li>
+        </a>
+
+        <a href="livro5.html">
+            <li><img src="imagens/harry 2.jpg" alt="Harry Potter e a Camâra Secreta">
+                <p>Harry Potter e a Camâra Secreta</p>
+            </li>
+        </a>
+
+        <a href="livro2.html">
+            <li><img src="imagens/harry potter.jpg" alt="Harry Potter e a Pedra Filosofal">
+                <p>Harry Potter e a Pedra Filosofal</p>
+            </li>
+        </a>
+
+        <a href="livro3.html">
+            <li><img src="imagens/senhor dos aneis.jpg" alt="O Senhor dos Anéis: A Sociedade do Anel">
+                <p>O Senhor dos Anéis: A Sociedade do Anel</p>
+            </li>
+        </a>
+
+        <a href="livro4.html">
+            <li><img src="imagens/viagem ao centro da terra.webp" alt="Viagem ao Centro da Terra">
+                <p>Viagem ao Centro da Terra </p>
+            </li>
+        </a>
+
+    </ul>
+
+    <h1>MAIS NOVIDADES EM BREVE...</h1>
+   
+<script>
+    document.getElementById('menu-butao').addEventListener('click', function () {
+    const lateral = document.getElementById('lateral');
+    const overlay = document.getElementById('overlay');
+
+    lateral.classList.toggle('active');
+    overlay.classList.toggle('active'); // Ativa/desativa o blur junto com a barra
+
+
+    if (lateral.classList.contains('active')) {
+        this.textContent = '☰';
+    } else {                          //ABRE E FECHA O MENU
+        this.textContent = '☰';
+    }
+});
+
+//  Fecha o menu se clicar no desfoque (fora da barra)
+document.getElementById('overlay').addEventListener('click', function () {
+    const lateral = document.getElementById('lateral');
+    const btn = document.getElementById('menu-butao');
+
+    lateral.classList.remove('active');
+    this.classList.remove('active');
+    btn.textContent = '☰';
+});
+</script>
+<main></main>
+<footer>
+    <p>Copyright&copy; 2026 Labirinto literário. Todos os direitos reservados.</p></footer>
+</body>
+
+</html>

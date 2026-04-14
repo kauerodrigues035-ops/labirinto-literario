@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fale Conosco </title>
+  <link rel="icon" href="imagens/logo.jpeg">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            padding: 20px;
+            background-image: url('imagens/img_contatos.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+
+        /* IMAGEM */
+        .fale_conosco {
+            display: block;
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* CONTAINER */
+        .container1 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        /* CARD */
+        fieldset {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            border: none;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        legend {
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background: #00329e;
+            color: white;
+        }
+
+        /* INPUTS */
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #f5f5f5;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border: 2px solid #0984e3;
+            background-color: #fff;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        #contador {
+            font-size: 12px;
+            color: #555;
+        }
+
+        /* BOTÃO */
+       #botaocomentario {
+            width: 100%;
+            margin-top: 10px;
+            padding: 12px;
+            border: none;
+            background: #000;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+       #botaocomentario{
+            background: #0984e3;
+        }
+
+        /* REDES */
+        .redes a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .redes a:hover {
+            color: #e50914;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: antiquewhite;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 600px) {
+            nav {
+                font-size: 14px;
+            }
+        }
+
+        img:hover,
+        fieldset:hover,
+        legend:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+         main {
+            height: 10vh;
+        }
+   
+
+
+
+
+#ft-perfil {
+    border-radius: 80%;
+margin: 10px;
+    width: 30%;
+border: 2px solid gold;
+box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.lateral {
+    background-color:#1A1A1A;
+    position: fixed;
+    height: 100vh;
+    width: 250px;
+    left: -274px;
+    z-index: 1000;
+    transition: 0.5s;
+    border-radius: 3px;
+    text-align: center;
+    border: solid, 1px gold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    padding-top: 60px;
+}
+
+.lateral p  {
+    font-size: x-small;
+    margin: 10px;
+   
+}
+
+.lateral h3{
+    color: gold;
+    text-shadow: none;
+}
+.lateral ul {
+    list-style: none;
+    padding: 0;
+
+}
+
+.lateral a {
+    text-decoration: none;
+    background-color: transparent;
+    color: #BFBFBF;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 5px;
+    display: block;
+    transition: 0.3s;
+}
+
+.lateral a:hover {
+    color: gold;
+  background-color: rgb(255, 255, 255,0.05);
+    transition: all, 0.5s;
+    padding: 15px;
+}
+
+.lateral.active {
+    left: 0%;
+    
+}
+
+.menu-butao {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: aliceblue;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 9;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+    transition: 0.5s;
+}
+    
+        
+    </style>
+</head>
+
+<body>
+<div class="overlay" id="overlay"></div>
+
+    <nav class="lateral" id="lateral">
+        <img id="ft-perfil" src="imagens/perfil.jpg" alt="perfil">
+        <p><a href="login.html">login</a></p>
+        <hr>
+        <br>
+        <h3>Labirinto Literario</h3>
+        <ul>
+            <br>
+              <li><a href="index.html">Inicio</a></li><br>
+
+            <li><a href="produtos.html">Produtos</a></li><br>
+
+            <li><a href="contatos.html">Contatos</a></li><br>
+
+            <li><a href="sobre.html">Sobre</a></li><br>
+
+              <li><a href="novidades.html">Novidades</a></li><br>
+        </ul>
+
+        </div>
+
+    </nav>
+
+    <nav class="container2">
+        <button id="menu-butao" class="menu-butao">☰</button>
+        
+    </nav>
+
+    <img src="imagens/fale_conosco.jpeg" alt="Fale Conosco" class="fale_conosco">
+
+    <div class="container1">
+
+        <!-- FORM -->
+        <form action="agradecimento.html">
+            <fieldset>
+                <legend>Contato</legend>
+
+                <label>Nome</label>
+                <input type="text" name="nome" placeholder="Digite seu nome" required>
+
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Digite seu email" required>
+
+                <label>Comentário</label>
+                <textarea maxlength="300" id="comentario" rows="5" placeholder="Digite sua mensagem..."
+                    required></textarea>
+
+                <p id="contador">0 / 300</p>
+
+              <button id="botaocomentario" type="submit">Enviar</button>
+            </fieldset>
+        </form>
+
+        <!-- REDES -->
+        <fieldset class="redes">
+            <legend>Minhas Redes</legend>
+
+            <p>📸 Instagram:
+                <a href="https://www.instagram.com/labirintoliterario01" target="_blank">
+                    @labirintoliterario01
+                </a>
+            </p>
+            <!--
+            <p>💻 GitHub:
+                <a href="https://github.com/MiguelSobral20" target="_blank">
+                    MiguelSobral20
+                </a>
+            </p> -->
+
+            <p>✉️ Email:
+                <a href="mailto:labirintoliterario01@gmail.com">
+                    labirintoliterario01@gmail,com
+                </a>
+            </p>
+
+            <p>🔗 Facebook:
+                <a href="https://www.facebook.com/profile.php?id=61570743624243&locale=pt_BR" target="_blank">
+                    Labirinto Literario
+                </a>
+            </p>
+
+        </fieldset>
+
+    </div>
+<main></main>
+    <footer>
+       <p>Copyright&copy; 2026 Labirinto literário. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- CONTADOR DE CARACTERES -->
+    <script>
+        const textarea = document.getElementById("comentario");
+        const contador = document.getElementById("contador");
+
+        textarea.addEventListener("input", () => {
+            contador.textContent = textarea.value.length + " / 300";
+        });
+    
+
+        document.getElementById('menu-butao').addEventListener('click', function () {
+    const lateral = document.getElementById('lateral');
+    const overlay = document.getElementById('overlay'); 
+
+    lateral.classList.toggle('active');
+    overlay.classList.toggle('active'); // Ativa/desativa o blur junto com a barra
+
+   
+    if (lateral.classList.contains('active')) {
+        this.textContent = '☰';
+    } else {                          //ABRE E FECHA O MENU
+        this.textContent = '☰';
+    }
+});
+
+//  Fecha o menu se clicar no desfoque (fora da barra)
+document.getElementById('overlay').addEventListener('click', function () {
+    const lateral = document.getElementById('lateral');
+    const btn = document.getElementById('menu-butao');
+    
+    lateral.classList.remove('active');
+    this.classList.remove('active');
+    btn.textContent = '☰';
+});
+    </script>
+
+</body>
+
+</html>

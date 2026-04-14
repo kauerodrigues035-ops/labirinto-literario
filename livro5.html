@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harry Potter e a Câmara Secreta</title>
+   <link rel="icon" href="imagens/logo.jpeg">
+    <link rel="stylesheet" href="livro.css">
+
+</head>
+
+<body>
+
+<div class="overlay" id="overlay"></div>
+
+    <nav class="lateral" id="lateral">
+        <img id="ft-perfil" src="imagens/perfil.jpg" alt="perfil">
+        <p><a href="login.html">login</a></p>
+        <hr>
+        <br>
+        <h3>Labirinto Literario</h3>
+        <ul>
+            <br>
+              <li><a href="index.html">Inicio</a></li><br>
+
+            <li><a href="produtos.html">Produtos</a></li><br>
+
+            <li><a href="contatos.html">Contatos</a></li><br>
+
+            <li><a href="sobre.html">Sobre</a></li><br>
+
+              <li><a href="novidades.html">Novidades</a></li><br>
+        </ul>
+
+        </div>
+
+    </nav>
+
+    <nav class="container2">
+        <button id="menu-butao" class="menu-butao">☰</button>
+        
+    </nav>
+
+    <main class="container1">
+        <aside>
+            <div class="imagens">
+                <img src="imagens/hpcamarasecretafrente.jpg" class="ativo" alt="Capa do Livro">
+                <img src="imagens/hpcamarasecreta.jpg" alt="Imagem secundária do livro">
+
+                <button id="prev" aria-label="Anterior" style="color: rgb(0, 0, 0);">‹</button>
+                <button id="next" aria-label="Próximo" style="color: rgb(0, 0, 0);">›</button>
+            </div>
+        </aside>
+
+        <section class="info-principal">
+
+            <h1>Harry Potter e a Câmara Secreta.</h1>
+
+            <p id="JK">Por <small><em>J.K.Rowling</em></small> (Autor)</p>
+
+            <p>4,8 <span style="color: #FFD700;">★★★★★</span> (255)</p>
+
+            <h3>Sobre o livro</h3>
+
+            <p id="sinopse">Depois de férias aborrecidas na casa dos tios trouxas, está na hora de Harry Potter voltar a estudar. Coisas acontecem, no entanto, para dificultar o regresso de Harry. Persistente e astuto, o herói não se deixa intimidar pelos obstáculos e, com a ajuda dos fiéis amigos Weasley, começa o ano letivo na Escola de Magia e Bruxaria de Hogwarts. As novidades não são poucas. Novos colegas, novos professores, muitas e boas descobertas e um grande e perigosos desafio. Alguém ou alguma coisa ameaça a segurança e a tranquilidade dos membros de Hogwarts.</p>
+
+        </section>
+
+        <div class="botoes">
+
+         <a href="Harry Potter (2) E A Câmara Secreta.pdf" download="Harry Potter (2) E A Câmara Secreta.pdf"><button class="btn-baixar">Baixar PDF</button></a>
+         <a href="Harry Potter (2) E A Câmara Secreta.pdf"  target="_blank"><button class="btn-abrir">Abrir PDF</button></a>
+
+        </div>
+
+    </main>
+
+    <footer>
+
+        <p>Copyright&copy; 2026 Labirinto literário. Todos os direitos reservados.</p>
+
+    </footer>
+
+    <script>
+
+        let index = 0;
+        const imagens = document.querySelectorAll(".imagens img");
+        const dots = document.querySelectorAll(".dot");
+
+        function mostrarSlide(i) {
+            imagens.forEach(img => img.classList.remove("ativo"));
+            dots.forEach(dot => dot.classList.remove("ativo"));
+
+            imagens[i].classList.add("ativo");
+            dots[i].classList.add("ativo");
+        }
+
+        document.querySelector("#next").onclick = () => {
+            index = (index + 1) % imagens.length;
+            mostrarSlide(index);
+        };
+
+        document.querySelector("#prev").onclick = () => {
+            index = (index - 1 + imagens.length) % imagens.length;
+            mostrarSlide(index);
+        }
+
+
+        
+        document.getElementById('menu-butao').addEventListener('click', function () {
+    const lateral = document.getElementById('lateral');
+    const overlay = document.getElementById('overlay'); 
+
+    lateral.classList.toggle('active');
+    overlay.classList.toggle('active'); // Ativa/desativa o blur junto com a barra
+
+   
+    if (lateral.classList.contains('active')) {
+        this.textContent = '☰';
+    } else {                          //ABRE E FECHA O MENU
+        this.textContent = '☰';
+    }
+});
+
+//  Fecha o menu se clicar no desfoque (fora da barra)
+document.getElementById('overlay').addEventListener('click', function () {
+    const lateral = document.getElementById('lateral');
+    const btn = document.getElementById('menu-butao');
+    
+    lateral.classList.remove('active');
+    this.classList.remove('active');
+    btn.textContent = '☰';
+});
+    </script>
+
+</body>
+
+</html>

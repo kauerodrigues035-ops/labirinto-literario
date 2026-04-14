@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labirinto literário</title>
+   <link rel="icon" href="imagens/logo.jpeg">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'><!-- Link para os ícones do Boxicons -->
+
+</head>
+<body>
+    <div class="overlay" id="overlay"></div>
+
+ <nav class="lateral" id="lateral">
+        <img id="ft-perfil" src="imagens/perfil.jpg" alt="perfil">
+        <p><a href="login.html">login</a></p>
+        <hr>
+        <br>
+        <h3>Labirinto Literario</h3>
+        <ul>
+            <br>
+              <li><a href="index.html">Inicio</a></li><br>
+
+            <li><a href="produtos.html">Produtos</a></li><br>
+
+            <li><a href="contatos.html">Contatos</a></li><br>
+
+            <li><a href="sobre.html">Sobre</a></li><br>
+
+              <li><a href="novidades.html">Novidades</a></li><br>
+        </ul>
+
+        </div>
+<header>
+
+
+    
+
+    </nav>
+
+    <nav class="container1">
+        <button id="menu-butao" class="menu-butao">☰</button>
+        
+    </nav>
+
+</header>
+
+<main class="container">
+
+         <h1>Faça seu login</h1>
+         
+         <p id="mensagem-erro" style="color: #e74c3c; text-align: center; height: 20px; margin-bottom: 10px; font-weight: bold;"></p>
+
+ <form id="login" action="index.html" method="post" autocomplete="off">
+
+    <div class="input-box">
+
+         <input type="email" id="email" required placeholder="Insira seu email">
+         <i class="bx bx-envelope"></i> <br><br>
+
+    </div>
+
+    <div class="input-box">
+
+         <input type="password" id="senha" required placeholder="Insira sua senha" minlength="8" maxlength="12" size="12"> 
+         <i class="bx bx-lock"></i>  <br><br>
+
+    </div>             
+
+    <div>
+
+         <button type="submit" id="entrar">Login</button><br><br>
+
+    </div>
+
+    <div class="cadastro">
+
+         <p>Não tem uma conta?<a href="cadastro.html"> Cadastre-se</a></p>
+         
+
+    </div>
+
+ </form>
+
+</main>
+
+<footer>
+
+      <p>
+Copyright &copy; 2026 Labirinto Literário. Todos os direitos reservados.
+    </p>
+
+</footer>
+
+<script>
+    
+    const formulario = document.getElementById('login'); /* Pega o formulario */
+    const campoErro = document.getElementById('mensagem-erro'); /* Pega o campo de erro */
+
+    formulario.addEventListener('submit', function(evento) { /* Adiciona um evento de submit ao formulario */
+        evento.preventDefault(); /* Impede que o formulario seja enviado */
+
+        const emailDigitado = document.getElementById('email').value; /* verifica o email digitado */
+        const senhaDigitada = document.getElementById('senha').value; /* verifica a senha digitada */
+
+        const emailCorreto = "labirintoliterario01@gmail.com"; /* Email correto */
+        const senhaCorreta = "labirinto_01"; /* Senha correta */
+
+        if (emailDigitado === emailCorreto && senhaDigitada === senhaCorreta) { /* Verifica se o email e a senha estão corretos */
+            
+            setTimeout(() => {
+                window.location.href = "index.html"; /* Redireciona para a página inicial */
+            });
+            
+        } else {
+            
+            campoErro.style.color = "red"; /* Muda a cor do campo de erro para vermelho */
+            
+            campoErro.textContent = "E-mail ou senha inválidos. Tente novamente."; /* mensagem de erro */
+            
+            document.getElementById('senha').value = ""; /* Limpa a senha */
+            
+            document.getElementById('email').value = ""; /* Limpa o email */
+        }
+    });
+
+
+    
+        document.getElementById('menu-butao').addEventListener('click', function () {
+    const lateral = document.getElementById('lateral');
+    const overlay = document.getElementById('overlay'); 
+
+    lateral.classList.toggle('active');
+    overlay.classList.toggle('active'); // Ativa/desativa o blur junto com a barra
+
+   
+    if (lateral.classList.contains('active')) {
+        this.textContent = '☰';
+    } else {                          //ABRE E FECHA O MENU
+        this.textContent = '☰';
+    }
+});
+
+//  Fecha o menu se clicar no desfoque (fora da barra)
+document.getElementById('overlay').addEventListener('click', function () {
+    const lateral = document.getElementById('lateral');
+    const btn = document.getElementById('menu-butao');
+    
+    lateral.classList.remove('active');
+    this.classList.remove('active');
+    btn.textContent = '☰';
+});
+</script>
+<footer>
+    <p>
+Copyright &copy; 2026 Labirinto Literário. Todos os direitos reservados.
+    </p>
+</footer>
+</body>
+</html>
